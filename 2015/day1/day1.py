@@ -73,13 +73,13 @@ if __name__ == "__main__":
     part2_c = (t3 - t2) * 1000  # in ms
         
     # Report performance info & solutions
-    template = "  - Part {0}: Solution = {1}, Time = {2}"
+    template = "  - Part {0}: Solution = {1}, Time = {2} ms"
     print("")
     print("Pure Python Solutions ({0} loops):".format(loop_count))
-    print(template.format(1, ans_p1, part1))
-    print(template.format(2, ans_p2, part2))
+    print(template.format(1, ans_p1, round(part1, 3)))
+    print(template.format(2, ans_p2, round(part2, 3)))
     print("")
     print("Cython Solutions ({0} loops):".format(loop_count))
-    print(template.format(1, ans_p1_c, part1_c))
-    print(template.format(2, ans_p2_c, part2_c))
+    print(template.format(1, ans_p1_c, round(part1_c, 3)))
+    print(template.format(2, ans_p2_c, round(part2_c, 3)))
     print("")
