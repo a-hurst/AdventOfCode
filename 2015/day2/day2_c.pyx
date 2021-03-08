@@ -1,3 +1,5 @@
+#cython: language_level=3
+
 from libc.stdio cimport sscanf
 
 
@@ -10,7 +12,7 @@ def get_total_wrapping_c(str z):
     for pkg in z.encode('utf8').split(b"\n"):
         
         # Get package dimensions as integers
-        if pkg == "":
+        if pkg == b"":
             break
         sscanf(pkg, "%dx%dx%d", &l, &h, &w)
         
@@ -25,7 +27,7 @@ def get_total_wrapping_c(str z):
         # Calculate area + slack for present and add to total
         area = (2*l*w + 2*w*h + 2*h*l)
         total_area += area + a*b
-        
+
     return total_area
 
 
@@ -38,7 +40,7 @@ def get_total_ribbon_c(str z):
     for pkg in z.encode('utf8').split(b"\n"):
         
         # Get package dimensions as integers
-        if pkg == "":
+        if pkg == b"":
             break
         sscanf(pkg, "%dx%dx%d", &l, &h, &w)
         
